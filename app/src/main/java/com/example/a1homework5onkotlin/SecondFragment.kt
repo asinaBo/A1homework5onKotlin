@@ -16,19 +16,16 @@ class SecondFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-    binding = FragmentSecondBinding.inflate(inflater, container, false)
+     binding = FragmentSecondBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val firstFragment = parentFragmentManager.findFragmentById(R.id.placeHolder) as? MainFragment
-        val valueFromFirstFragment = firstFragment?.binding?.tvResult?.text
-        binding.tvResult1.text = "Value from Fragment 1: $valueFromFirstFragment"
-    }
-    companion object {
 
-        @JvmStatic
-        fun newInstance() = SecondFragment()
+        val resultOf = arguments?.getInt("the")
+        binding.tvResult1.text = " $resultOf"
+
     }
+
 }
